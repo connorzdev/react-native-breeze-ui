@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-native";
 import { fn } from "storybook/test";
 import { View } from "react-native";
-import { MyButton } from "./Button";
+import { Button } from "./Button";
 
 const meta = {
-  title: "MyButton",
-  component: MyButton,
+  title: "Button",
+  component: Button,
   args: {
     text: "Hello world",
   },
@@ -16,7 +16,7 @@ const meta = {
       </View>
     ),
   ],
-} satisfies Meta<typeof MyButton>;
+} satisfies Meta<typeof Button>;
 
 export default meta;
 
