@@ -10,7 +10,19 @@ const main: StorybookConfig = {
 
   framework: {
     name: "@storybook/react-native-web-vite",
-    options: {},
+    options: {
+      pluginReactOptions: {
+        jsxRuntime: "automatic",
+        jsxImportSource: "nativewind",
+        babel: {
+          presets: ["nativewind/babel"],
+          plugins: [
+            "@babel/plugin-transform-class-static-block",
+            "react-native-worklets/plugin",
+          ],
+        },
+      },
+    },
   },
 };
 

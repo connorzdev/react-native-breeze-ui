@@ -10,6 +10,7 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     ".storybook/*",
-    ".rnstorybook/*"
+    ".rnstorybook/*",
+    "nativewind-env.d.ts"
   ]
 }

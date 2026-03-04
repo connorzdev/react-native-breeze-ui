@@ -7,6 +7,7 @@ const meta = {
   title: "Text",
   args: {
     children: "123",
+    className: "",
   },
 } satisfies Meta<typeof Text>;
 

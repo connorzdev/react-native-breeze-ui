@@ -1,6 +1,14 @@
 import { Text as RNText } from "react-native";
 import { ComponentProps } from "react";
 
-export function Text({ children, ...props }: ComponentProps<typeof RNText>) {
-  return <RNText {...props}>{children}</RNText>;
+export type TextProps = ComponentProps<typeof RNText> & {
+  className?: string;
+};
+
+export function Text({ children, className, ...props }: TextProps) {
+  return (
+    <RNText {...props} className={className}>
+      {children}
+    </RNText>
+  );
 }

@@ -1,6 +1,7 @@
 import { withBackgrounds } from "@storybook/addon-ondevice-backgrounds";
 import type { Preview } from "@storybook/react-native";
 import { Platform } from "react-native";
+import "../global.css";
 
 // fix for actions on web
 if (Platform.OS === "web") {

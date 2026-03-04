@@ -1,13 +1,14 @@
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-interface ButtonProps {
+export type ButtonProps = {
   onPress: () => void;
   text: string;
-}
+  containerClassName?: string;
+};
 
-export const Button = ({ onPress, text }: ButtonProps) => {
+export const Button = ({ onPress, text, containerClassName }: ButtonProps) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity className={containerClassName} onPress={onPress}>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   );
