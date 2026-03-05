@@ -7,8 +7,10 @@ const meta = {
   title: "Button",
   component: Button,
   args: {
-    text: "Hello world",
-    containerClassName: "",
+    children: "Hello world",
+    variant: "primary",
+    size: "sm",
+    isIconButton: false,
   },
   decorators: [
     (Story) => (
