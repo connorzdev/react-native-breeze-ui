@@ -27,6 +27,7 @@
     "expo-router": "~6.0.13",
     "expo-splash-screen": "~31.0.10",
     "expo-status-bar": "~3.0.8",
+    "lucide-react-native": "^0.577.0",
     "nativewind": "^4.2.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@babel/plugin-transform-class-static-block": "^7.27.1",
     "@babel/preset-env": "^7.25.4",
     "@chromatic-com/storybook": "^4.0.0",

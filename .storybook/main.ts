@@ -18,6 +18,7 @@ const main: StorybookConfig = {
           presets: ["nativewind/babel"],
           plugins: [
             "@babel/plugin-transform-class-static-block",
+            "@babel/plugin-proposal-export-namespace-from",
             "react-native-worklets/plugin",
           ],
         },
