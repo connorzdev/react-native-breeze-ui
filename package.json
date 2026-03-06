@@ -14,7 +14,9 @@
     "storybook-generate": "sb-rn-get-stories",
     "storybook": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo start",
     "storybook:ios": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo run:ios",
-    "storybook:android": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo run:android"
+    "storybook:android": "cross-env EXPO_PUBLIC_STORYBOOK_ENABLED='true' expo run:android",
+    "test": "vitest",
+    "test-storybook": "vitest --project=storybook"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.2.6",
@@ -49,24 +51,30 @@
     "@babel/preset-env": "^7.25.4",
     "@chromatic-com/storybook": "^4.0.0",
     "@expo/metro-runtime": "~6.1.2",
+    "@storybook/addon-a11y": "^10.2.14",
     "@storybook/addon-docs": "^10.0.0",
     "@storybook/addon-ondevice-actions": "^10.0.0",
     "@storybook/addon-ondevice-backgrounds": "^10.0.0",
     "@storybook/addon-ondevice-controls": "^10.0.0",
     "@storybook/addon-ondevice-notes": "^10.0.0",
+    "@storybook/addon-vitest": "^10.2.16",
     "@storybook/react": "^10.0.0",
     "@storybook/react-native": "^10.0.0",
     "@storybook/react-native-web-vite": "^10.0.0",
     "@types/react": "~19.1.10",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
     "babel-plugin-react-docgen-typescript": "^1.5.1",
     "babel-preset-expo": "^55.0.10",
     "cross-env": "^10.0.0",
+    "playwright": "^1.58.2",
     "prettier": "latest",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "storybook": "^10.0.0",
     "tailwindcss": "^3.4.19",
     "typescript": "~5.9.2",
-    "vite": "^7.1.12"
+    "vite": "^7.1.12",
+    "vitest": "^4.0.18"
   },
   "resolutions": {
     "react-docgen-typescript": "2.2.2"
