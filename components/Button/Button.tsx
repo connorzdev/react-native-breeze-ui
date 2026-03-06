@@ -17,14 +17,26 @@ export const button = tv({
         base: "bg-secondary active:opacity-60",
         label: "text-secondary-foreground",
       },
+      error: {
+        base: "bg-error active:opacity-60",
+        label: "text-error-foreground",
+      },
+      outline: {
+        base: "border border-primary active:opacity-60",
+        label: "text-primary",
+      },
+      link: {
+        base: "active:opacity-60",
+        label: "text-primary underline",
+      },
+      icon: {
+        base: "w-[56px] h-[56px] rounded-full bg-surface border border-outline active:opacity-60",
+      },
     },
     size: {
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-    },
-    isIconButton: {
-      true: "",
+      sm: "",
+      md: "",
+      lg: "",
     },
   },
   defaultVariants: {
@@ -38,14 +50,9 @@ type ButtonVariants = VariantProps<typeof button>;
 export type ButtonProps = PropsWithChildren<ButtonVariants> &
   ComponentPropsWithRef<typeof Pressable>;
 
-export const Button = ({
-  variant,
-  size,
-  isIconButton,
-  children,
-  ...props
-}: ButtonProps) => {
-  const { base, label } = button({ variant, size, isIconButton });
+export const Button = ({ variant, size, children, ...props }: ButtonProps) => {
+  const { base, label } = button({ variant, size });
+  const isIconButton = variant === "icon";
 
   return (
     <Pressable className={base()} {...props}>
@@ -55,3 +62,17 @@ export const Button = ({
     </Pressable>
   );
 };
+
+function CompoundButtonInner() {
+  return (
+    <>
+      {/*Leading Slot*/}
+      <Text selectable={false}></Text>
+      {/*Trailing Slot*/}
+    </>
+  );
+}
+
+function IconButtonInner() {
+  // return <>{icon child node}</>
+}

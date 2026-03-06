@@ -8,13 +8,16 @@ const meta = {
   component: Button,
   args: {
     children: "Hello world",
-    variant: "primary",
-    size: "sm",
-    isIconButton: false,
+  },
+  argTypes: {
+    variant: {
+      options: ["primary", "secondary", "error", "outline", "link", "icon"],
+      control: { type: "radio" },
+    },
   },
   decorators: [
     (Story) => (
-      <View style={{ padding: 16 }}>
+      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
         <Story />
       </View>
     ),
@@ -25,8 +28,50 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Primary: Story = {
   args: {
     onPress: fn(),
+    children: "Primary Button",
+    variant: "primary",
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    onPress: fn(),
+    children: "Secondary Button",
+    variant: "secondary",
+  },
+};
+
+export const error: Story = {
+  args: {
+    onPress: fn(),
+    children: "Error Button",
+    variant: "error",
+  },
+};
+
+export const outline: Story = {
+  args: {
+    onPress: fn(),
+    children: "Outline Button",
+    variant: "outline",
+  },
+};
+
+export const link: Story = {
+  args: {
+    onPress: fn(),
+    children: "Link Button",
+    variant: "link",
+  },
+};
+
+export const icon: Story = {
+  args: {
+    onPress: fn(),
+    children: "1",
+    variant: "icon",
   },
 };
