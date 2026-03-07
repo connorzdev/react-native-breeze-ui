@@ -4,9 +4,9 @@
   "main": "expo-router/entry",
   "exports": {
     ".": {
+      "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.mts"
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
@@ -30,6 +30,29 @@
     "test-storybook": "vitest --project=storybook"
   },
   "dependencies": {
+    "tailwind-merge": "^3.5.0",
+    "tailwind-variants": "^3.2.2"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0",
+    "react-native": ">=0.81.0",
+    "nativewind": ">=4.2.0",
+    "lucide-react-native": ">=0.577.0",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-gesture-handler": ">=2.28.0",
+    "react-native-worklets": ">=0.6.0",
+    "react-native-safe-area-context": ">=5.6.0"
+  },
+  "devDependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.5",
+    "nativewind": "^4.2.2",
+    "lucide-react-native": "^0.577.0",
+    "react-native-reanimated": "~4.1.1",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-worklets": "^0.6.1",
     "@gorhom/bottom-sheet": "^5.2.6",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/datetimepicker": "8.4.4",
@@ -40,22 +63,10 @@
     "expo-router": "~6.0.13",
     "expo-splash-screen": "~31.0.10",
     "expo-status-bar": "~3.0.8",
-    "lucide-react-native": "^0.577.0",
-    "nativewind": "^4.2.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-native": "0.81.5",
-    "react-native-gesture-handler": "~2.28.0",
-    "react-native-reanimated": "~4.1.1",
     "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0",
     "react-native-svg": "15.12.1",
     "react-native-web": "^0.21.0",
-    "react-native-worklets": "^0.6.1",
-    "tailwind-merge": "^3.5.0",
-    "tailwind-variants": "^3.2.2"
-  },
-  "devDependencies": {
     "@babel/core": "^7.24.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@babel/plugin-transform-class-static-block": "^7.27.1",
