@@ -1,7 +1,15 @@
 import type { Preview } from "@storybook/react-native";
+import { BreezeStylesProvider } from "@/hooks/BreezeStylesProvider";
 import "../global.css";
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <BreezeStylesProvider>
+        <Story />
+      </BreezeStylesProvider>
+    ),
+  ],
   parameters: {
     backgrounds: {
       default: "plain",

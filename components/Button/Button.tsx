@@ -1,78 +1,52 @@
 import { Text, Pressable } from "react-native";
-import { tv, type VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
+import { useMemo } from "react";
 import { ComponentPropsWithRef, PropsWithChildren } from "react";
+import { useBreezeStyles } from "@/hooks/BreezeStylesProvider";
+import type { ButtonVariant, ButtonSize, ButtonSlots } from "./button.styles";
 
-export const button = tv({
-  slots: {
-    base: "flex flex-row items-center justify-center px-6 py-4 min-w-[56px]",
-    label: "",
-  },
-  variants: {
-    variant: {
-      primary: {
-        base: "bg-primary active:opacity-60",
-        label: "text-primary-foreground",
-      },
-      secondary: {
-        base: "bg-secondary active:opacity-60",
-        label: "text-secondary-foreground",
-      },
-      error: {
-        base: "bg-error active:opacity-60",
-        label: "text-error-foreground",
-      },
-      outline: {
-        base: "border border-primary active:opacity-60",
-        label: "text-primary",
-      },
-      link: {
-        base: "active:opacity-60",
-        label: "text-primary underline",
-      },
-      icon: {
-        base: "w-[56px] h-[56px] rounded-full bg-surface border border-outline active:opacity-60",
-      },
-    },
-    size: {
-      sm: "",
-      md: "",
-      lg: "",
-    },
-  },
-  defaultVariants: {
-    variant: "primary",
-    size: "md",
-  },
-});
-
-type ButtonVariants = VariantProps<typeof button>;
-
-export type ButtonProps = PropsWithChildren<ButtonVariants> &
+export type ButtonProps = PropsWithChildren<{
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  classNames?: ButtonSlots;
+}> &
   ComponentPropsWithRef<typeof Pressable>;
 
-export const Button = ({ variant, size, children, ...props }: ButtonProps) => {
+export const Button = ({
+  variant,
+  size,
+  children,
+  classNames,
+  ...props
+}: ButtonProps) => {
+  const { button: s } = useBreezeStyles();
+
+  const button = useMemo(
+    () =>
+      tv({
+        slots: { base: s.base, label: s.label },
+        variants: {
+          variant: s.variants,
+          size: s.sizes,
+        },
+        defaultVariants: {
+          variant: s.defaultVariant,
+          size: s.defaultSize,
+        },
+      }),
+    [s],
+  );
+
   const { base, label } = button({ variant, size });
-  const isIconButton = variant === "icon";
 
   return (
-    <Pressable className={base()} {...props}>
-      <Text selectable={false} className={label()}>
+    <Pressable className={base({ className: classNames?.base })} {...props}>
+      <Text
+        selectable={false}
+        className={label({ className: classNames?.label })}
+      >
         {children}
       </Text>
     </Pressable>
   );
 };
-
-function CompoundButtonInner() {
-  return (
-    <>
-      {/*Leading Slot*/}
-      <Text selectable={false}></Text>
-      {/*Trailing Slot*/}
-    </>
-  );
-}
-
-function IconButtonInner() {
-  // return <>{icon child node}</>
-}

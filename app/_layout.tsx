@@ -1,5 +1,7 @@
 import { Stack } from "expo-router";
+import { BreezeStylesProvider } from "@/hooks/BreezeStylesProvider";
 import "../global.css";
+
 const StorybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === "true";
 
 export const unstable_settings = {
@@ -8,12 +10,14 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Protected guard={StorybookEnabled}>
-        <Stack.Screen name="(storybook)/index" />
-      </Stack.Protected>
+    <BreezeStylesProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Protected guard={StorybookEnabled}>
+          <Stack.Screen name="(storybook)/index" />
+        </Stack.Protected>
 
-      <Stack.Screen name="(pages)/index" />
-    </Stack>
+        <Stack.Screen name="(pages)/index" />
+      </Stack>
+    </BreezeStylesProvider>
   );
 }
