@@ -12,26 +12,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--on-primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--on-secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         error: {
           DEFAULT: "hsl(var(--error))",
-          foreground: "hsl(var(--on-error))",
+          foreground: "hsl(var(--error-foreground))",
         },
         surface: {
           DEFAULT: "hsl(var(--surface))",
-          foreground: "hsl(var(--on-surface))",
+          foreground: "hsl(var(--surface-foreground))",
         },
         outline: "hsl(var(--outline))",
         "inverse-surface": {
           DEFAULT: "hsl(var(--inverse-surface))",
-          foreground: "hsl(var(--inverse-on-surface))",
+          foreground: "hsl(var(--inverse-surface-foreground))",
         },
         scrim: "hsl(var(--scrim))",
         shadow: "hsl(var(--shadow))",
