@@ -2,9 +2,20 @@
   "name": "react-native-breeze-ui",
   "version": "1.0.0",
   "main": "expo-router/entry",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.mts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "author": "Connor",
   "scripts": {
+    "build": "tsdown",
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
@@ -72,6 +83,7 @@
     "prettier-plugin-tailwindcss": "^0.5.14",
     "storybook": "^10.0.0",
     "tailwindcss": "^3.4.19",
+    "tsdown": "^0.21.0",
     "typescript": "~5.9.2",
     "vite": "^7.1.12",
     "vitest": "^4.0.18"
