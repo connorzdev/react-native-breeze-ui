@@ -35,12 +35,3 @@ export const THEME_COLORS = {
     shadow: "0 0% 0%", // #000000
   },
 } as const;
-
-// Helper to get resolved HSL value for JS usage (e.g., charts, canvas)
-export function hsl(token: string, mode: "light" | "dark" = "light"): string {
-  const value =
-    THEME_COLORS[mode][token as keyof (typeof THEME_COLORS)["light"]];
-  if (!value) return "";
-  if (value.includes("rem") || value.includes("px")) return value;
-  return `hsl(${value})`;
-}

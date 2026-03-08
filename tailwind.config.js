@@ -1,3 +1,6 @@
+const { default: createThemePlugin } = require("./tailwind-theme-plugin");
+const { THEME_COLORS } = require("./theme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
@@ -40,5 +43,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("./tailwind-theme-plugin").default],
+  plugins: [createThemePlugin({ theme: THEME_COLORS })],
 };
