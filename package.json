@@ -7,6 +7,11 @@
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./tailwind-theme-plugin": {
+      "types": "./dist/tailwind-theme-plugin.d.mts",
+      "import": "./dist/tailwind-theme-plugin.mjs",
+      "require": "./dist/tailwind-theme-plugin.cjs"
     }
   },
   "files": [
@@ -35,6 +40,7 @@
   },
   "peerDependencies": {
     "react": ">=19.0.0",
+    "tailwindcss": ">=3.0.0",
     "react-dom": ">=19.0.0",
     "react-native": ">=0.81.0",
     "nativewind": ">=4.2.0",
@@ -110,5 +116,9 @@
       "react-docgen-typescript": "2.2.2"
     }
   },
-  "private": true
+  "private": true,
+  "publishConfig": {
+    "main": "./dist/index.cjs",
+    "private": false
+  }
 }
