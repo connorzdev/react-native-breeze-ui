@@ -5,24 +5,17 @@ type ThemeColors = {
   dark: Record<string, string>;
 };
 
-type PluginOptions =
-  | { theme: ThemeColors; path?: never }
-  | { path: string; theme?: never };
+type PluginOptions = { theme: ThemeColors };
 
-export default function createThemePlugin(options: PluginOptions) {
+export function createThemePlugin(options: PluginOptions) {
   let themeColors: ThemeColors;
 
   if (options.theme) {
     themeColors = options.theme;
   } else {
-    try {
-      const mod = require(options.path);
-      themeColors = mod.default ?? mod;
-    } catch {
-      throw new Error(
-        `[react-native-breeze-ui] Could not load theme from path: "${options.path}". Make sure the file exists and exports a valid theme object.`,
-      );
-    }
+    throw new Error(
+      `[react-native-breeze-ui] Could not load theme. Make sure the file exists and exports a valid theme object.`,
+    );
   }
 
   const toVars = (obj: Record<string, string>) =>

@@ -15,7 +15,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "tailwind-theme-plugin"
   ],
   "license": "MIT",
   "author": "Connor",
