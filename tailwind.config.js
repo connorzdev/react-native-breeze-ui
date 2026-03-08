@@ -1,4 +1,4 @@
-const { default: createThemePlugin } = require("./tailwind-theme-plugin");
+const { createThemePlugin } = require("./tailwind-theme-plugin");
 const { THEME_COLORS } = require("./theme");
 
 /** @type {import('tailwindcss').Config} */
