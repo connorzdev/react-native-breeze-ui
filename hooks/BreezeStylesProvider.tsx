@@ -3,17 +3,31 @@ import {
   defaultButtonStyles,
   type ButtonStyleConfig,
 } from "@/components/Button/button.styles";
+import {
+  defaultTextStyles,
+  type TextStyleConfig,
+} from "@/components/Text/text.styles";
+import {
+  defaultIconButtonStyles,
+  type IconButtonStyleConfig,
+} from "@/components/IconButton";
 
 type BreezeStyleOverrides = {
   button?: ButtonStyleConfig;
+  iconButton?: IconButtonStyleConfig;
+  text?: TextStyleConfig;
 };
 
 type BreezeContextValue = {
   button: ButtonStyleConfig;
+  iconButton: IconButtonStyleConfig;
+  text: TextStyleConfig;
 };
 
 const BreezeContext = createContext<BreezeContextValue>({
   button: defaultButtonStyles,
+  iconButton: defaultIconButtonStyles,
+  text: defaultTextStyles,
 });
 
 export function BreezeStylesProvider({
@@ -24,9 +38,11 @@ export function BreezeStylesProvider({
   styles?: BreezeStyleOverrides;
 }) {
   const button = styles.button ?? defaultButtonStyles;
+  const iconButton = styles.iconButton ?? defaultIconButtonStyles;
+  const text = styles.text ?? defaultTextStyles;
 
   return (
-    <BreezeContext.Provider value={{ button }}>
+    <BreezeContext.Provider value={{ button, iconButton, text }}>
       {children}
     </BreezeContext.Provider>
   );

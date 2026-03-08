@@ -22,6 +22,7 @@
   "author": "Connor",
   "scripts": {
     "build": "tsdown",
+    "watch": "tsdown --watch ./components",
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",

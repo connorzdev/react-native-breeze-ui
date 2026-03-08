@@ -12,10 +12,10 @@ export default defineConfig({
       jsx: { importSource: "nativewind" },
     },
   },
-  hooks: {
-    "build:done": async () => {
-      console.log("Build done, publish to yalc");
-      execSync("yalc publish --private", { stdio: "inherit" });
-    },
-  },
+  // hooks: {
+  //   "build:done": async () => {
+  //     console.log("Build done, publish to yalc");
+  //     execSync("yalc publish --private", { stdio: "inherit" });
+  //   },
+  // },
 });
